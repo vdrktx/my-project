@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Вебсайт - Світ Ігор (Темна Тема)</title>
+    <meta name="description" content="Пориньте у світ улюблених відеоігор з новинами, оглядами та порадами в елегантному темному дизайні.">
+    <meta name="keywords" content="ігри, відеоігри, новини ігор, огляди ігор, геймінг, консолі, ПК ігри, мобільні ігри, темна тема">
+    <meta name="author" content="Ваше Ім'я Геймера">
+    
+    <!-- Вбудовані стилі CSS для темної теми -->
+    <style>
+        /* Загальні стилі */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e; /* Дуже темний фон */
+            color: #e0e0e0; /* Світлий текст */
+            scroll-behavior: smooth; /* Плавний скролінг до якоря */
+        }
+
+        a {
+            color: #e94560; /* Акцентний фіолетово-червоний для посилань */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fc7287; /* Світліший відтінок при наведенні */
+        }
+
+        /* Шапка сайту */
+        header {
+            background: #0f0f1c; /* Темніший фон шапки */
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 3px solid #6a0572; /* Фіолетова межа */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header .logo p {
+            margin-top: 5px;
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Для мобільних пристроїв */
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e94560; /* Акцентна лінія під посиланням */
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a[aria-current="page"]::after {
+            width: 100%;
+        }
+        
+        nav a:hover,
+        nav a[aria-current="page"] {
+            color: #e94560; /* Акцентний колір при наведенні */
+        }
+
+
+        /* Головний контент */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 30px auto;
+            background: #0f0f1c; /* Темніший фон для основного контейнера */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        section {
+            flex: 3;
+            margin-right: 30px;
+            min-width: 600px; /* Мінімальна ширина для секції статей */
+        }
+
+        aside {
+            flex: 1;
+            min-width: 280px; /* Мінімальна ширина для бічної панелі */
+            background: #16213e; /* Інший відтінок темного для бічної панелі */
+            padding: 25px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2, h3 {
+            color: #a788d9; /* Фіолетовий заголовок */
+            border-bottom: 2px solid #6a0572;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        article {
+            background: #16213e; /* Темніший фон для кожної статті */
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        article header p {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+        
+        article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            /* Додаємо fallback зображення, якщо основне не завантажиться */
+            /* Якщо ви не використовуєте конкретні URL-адреси зображень,
+               або вони можуть бути недоступні, розгляньте використання
+               placeholder-сервісу, наприклад:
+               onerror="this.onerror=null;this.src='https://placehold.co/600x300/6a0572/e94560?text=Зображення+Не+Доступне';"
+            */
+        }
+
+        article a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #e94560;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        article a:hover {
+            background-color: #fc7287;
+        }
+
+        article footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #3e2e50;
+            font-size: 0.9em;
+            color: #b0b0b0;
+        }
+        article footer a {
+            color: #a788d9;
+            text-decoration: underline;
+        }
+        article footer a:hover {
+            color: #c0a8ed;
+        }
+
+        /* Бічна панель: стилі для форм та списків */
+        aside section {
+            background: #1a1a2e; /* Ще темніший фон для секцій в aside */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        aside h3 {
+            color: #e94560; /* Акцентний заголовок для бічної панелі */
+            border-bottom: 1px solid #a788d9;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        aside form input[type="search"] {
+            padding: 10px;
+            width: calc(100% - 85px);
+            border: 1px solid #3e2e50;
+            background-color: #2a2a4a;
+            color: #e0e0e0;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        aside form button {
+            padding: 10px 15px;
+            background-color: #6a0572; /* Фіолетова кнопка */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        aside form button:hover {
+            background-color: #8c0699;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+        }
+        aside ul li::before {
+            content: '🎮'; /* Іконка геймпада */
+            position: absolute;
+            left: -10px;
+            color: #e94560;
+        }
+
+        aside ul a {
+            color: #e0e0e0;
+        }
+
+        /* Підвал сайту */
+        footer {
+            background: #0f0f1c; /* Такий же темний, як і шапка */
+            color: #b0b0b0;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 30px;
+            border-top: 3px solid #6a0572;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer a {
+            color: #a788d9;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #c0a8ed;
+        }
+        footer address p {
+            margin: 5px 0;
+        }
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+
+        /* Допоміжний CSS для доступності (приховує елементи візуально, але залишає для читалок екрана) */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Медіа-запити для адаптивності на менших екранах */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+            header .logo h1 {
+                font-size: 2em;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            main {
+                flex-direction: column;
+                padding: 15px;
+            }
+            section {
+                margin-right: 0;
+                min-width: unset; /* Знімаємо мінімальну ширину */
+                margin-bottom: 30px;
+            }
+            aside {
+                min-width: unset; /* Знімаємо мінімальну ширину */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайту: містить логотип (назву сайту) та навігаційне меню -->
+    <header role="banner" aria-label="Головна шапка сайту з навігацією">
+        <div class="logo">
+            <!-- Назва сайту, яка є посиланням на головну сторінку -->
+            <a href="index.html" aria-label="Перейти на головну сторінку Мого Вебсайту">
+                <h1>Мій Вебсайт</h1>
+                <p>Ваш портал у світ ігор</p>
+            </a>
+        </div>
+        <nav role="navigation" aria-label="Головне навігаційне меню">
+            <ul>
+                <li><a href="#news" aria-current="page">Новини</a></li>
+                <li><a href="#reviews">Огляди</a></li>
+                <li><a href="#guides">Гайди</a></li>
+                <li><a href="#platforms">Платформи</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Головний вміст сторінки: містить основні статті/новини та бічну панель -->
+    <main role="main" aria-label="Основний вміст сайту про ігри">
+        <!-- Секція "Останні новини та статті" -->
+        <section id="news" aria-labelledby="news-heading">
+            <h2 id="news-heading">Останні Новини та Статті</h2>
+            
+            <article data-keywords="cyberpunk 2077 phantom liberty розширення огляд" aria-labelledby="article-cyberpunk-heading">
+                <header>
+                    <h3 id="article-cyberpunk-heading">Cyberpunk 2077: Розширення Phantom Liberty – Наші Враження</h3>
+                    <p>Опубліковано: <time datetime="2025-06-10">10 червня 2025</time> | Категорія: Огляди</p>
+                </header>
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6m9c.jpg" alt="Обкладинка гри Cyberpunk 2077: Phantom Liberty" style="max-width:100%; height:auto;">
+                <p>Довгоочікуване розширення для Cyberpunk 2077, Phantom Liberty, приносить у Найт-Сіті нового сюжетного героя, цікаві місії та значні зміни в ігровому процесі. Ми вже поринули в атмосферу шпигунського трилера і готові поділитися першими враженнями...</p>
+                <a href="#read-more-cyberpunk" aria-label="Читати далі про Cyberpunk 2077 Phantom Liberty">Читати далі</a>
+                <footer>
+                    <p>Теги: <a href="#tag-cyberpunk">Cyberpunk</a>, <a href="#tag-rpg">RPG</a>, <a href="#tag-cdpr">CD Projekt RED</a></p>
+                </footer>
+            </article>
+
+            <article data-keywords="nintendo direct анонси новини nintendo switch" aria-labelledby="article-nintendo-heading">
+                <header>
+                    <h3 id="article-nintendo-heading">Nintendo Direct: Анонси та Сюрпризи з Останньої Презентації</h3>
+                    <p>Опубліковано: <time datetime="2025-06-08">08 червня 2025</time> | Категорія: Новини</p>
+                </header>
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1x4k.jpg" alt="Логотип Nintendo Switch" style="max-width:100%; height:auto;">
+                <p>Остання презентація Nintendo Direct була насичена анонсами нових ігор та оновлень для Nintendo Switch. Від несподіваних продовжень улюблених серій до абсолютно нових франшиз – розберемо найцікавіші моменти, на які варто звернути увагу...</p>
+                <a href="#read-more-nintendo" aria-label="Читати далі про Nintendo Direct">Читати далі</a>
+                <footer>
+                    <p>Теги: <a href="#tag-nintendo">Nintendo</a>, <a href="#tag-switch">Switch</a>, <a href="#tag-news">Новини</a></p>
+                </footer>
+            </article>
+
+            <article data-keywords="multiplayer онлайн ігри поради початківці" aria-labelledby="article-tips-heading">
+                <header>
+                    <h3 id="article-tips-heading">5 Порад для Початківців у MultiPlayer Онлайн Іграх</h3>
+                    <p>Опубліковано: <time datetime="2025-06-03">03 червня 2025</time> | Категорія: Гайди</p>
+                </header>
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6774.jpg" alt="Ігровий контролер на темному фоні" style="max-width:100%; height:auto;">
+                <p>Почати грати в онлайн-ігри може бути складно, особливо для новачків. Ось п'ять ключових порад, які допоможуть вам швидко адаптуватися, покращити свої навички та отримувати більше задоволення від гри...</p>
+                <a href="#read-more-tips" aria-label="Читати далі про поради для MP ігор">Читати далі</a>
+                <footer>
+                    <p>Теги: <a href="#tag-multiplayer">Мультіплеєр</a>, <a href="#tag-tips">Поради</a>, <a href="#tag-gaming">Геймінг</a></p>
+                </footer>
+            </article>
+
+            <!-- Додаткова стаття для демонстрації пошуку -->
+            <article data-keywords="elden ring soulsborne rpg фентезі" aria-labelledby="article-elden-ring-heading">
+                <header>
+                    <h3 id="article-elden-ring-heading">Elden Ring: Подорож по Міжземл'ю</h3>
+                    <p>Опубліковано: <time datetime="2025-05-20">20 травня 2025</time> | Категорія: Огляди</p>
+                </header>
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5y04.jpg" alt="Обкладинка гри Elden Ring" style="max-width:100%; height:auto;">
+                <p>Elden Ring — це епічна рольова гра, що поєднує глибокий сюжет від Джорджа Р.Р. Мартіна та фірмовий геймплей FromSoftware. Дослідіть величезний відкритий світ, бийтеся з моторошними ворогами та відкрийте таємниці Міжземл'я.</p>
+                <a href="#read-more-elden-ring" aria-label="Читати далі про Elden Ring">Читати далі</a>
+                <footer>
+                    <p>Теги: <a href="#tag-eldenring">Elden Ring</a>, <a href="#tag-fromsoftware">FromSoftware</a>, <a href="#tag-rpg">RPG</a></p>
+                </footer>
+            </article>
+
+        </section>
+        
+        <!-- Бічна панель: містить форму пошуку, віджет соціальних мереж та популярні ігри -->
+        <aside role="complementary" aria-label="Бічна панель з додатковою інформацією про ігри">
+            <!-- Форма пошуку по сайту -->
+            <section aria-labelledby="search-games-heading">
+                <h3 id="search-games-heading">Пошук Ігор</h3>
+                <form id="search-form" role="search" aria-label="Форма пошуку ігор">
+                    <label for="search-input" class="visually-hidden">Введіть назву гри або тему</label>
+                    <input type="search" id="search-input" name="query" placeholder="Знайти гру..." aria-label="Поле для введення пошукового запиту">
+                    <button type="submit" aria-label="Кнопка пошуку">Пошук</button>
+                </form>
+            </section>
+
+            <!-- Віджет соціальних мереж -->
+            <section aria-labelledby="social-media-heading">
+                <h3 id="social-media-heading">Ми в Соцмережах</h3>
+                <ul>
+                    <li><a href="https://facebook.com/yourgamingpage" target="_blank" rel="noopener noreferrer" aria-label="Наша сторінка у Facebook">Facebook</a></li>
+                    <li><a href="https://twitter.com/yourgamingaccount" target="_blank" rel="noopener noreferrer" aria-label="Наш профіль у Twitter">Twitter (X)</a></li>
+                    <li><a href="https://www.youtube.com/@Nintendo" target="_blank" rel="noopener noreferrer" aria-label="Наш канал на YouTube">YouTube</a></li>
+                </ul>
+            </section>
+
+            <!-- Секція з популярними іграми (приклад) -->
+            <section aria-labelledby="popular-games-heading">
+                <h3 id="popular-games-heading">Популярні Ігри</h3>
+                <ul>
+                    <li><a href="#game-elden-ring">Elden Ring</a></li>
+                    <li><a href="#game-zelda-totk">Zelda: Tears of the Kingdom</a></li>
+                    <li><a href="#game-valo">Valorant</a></li>
+                    <li><a href="#game-hogwarts">Hogwarts Legacy</a></li>
+                </ul>
+            </section>
+        </aside>
+    </main>
+
+    <!-- Підвал сайту: містить контактну інформацію, посилання та копірайт -->
+    <footer role="contentinfo" aria-label="Підвал сайту з контактами та копірайтом">
+        <section aria-labelledby="footer-contact-heading">
+            <h3 id="footer-contact-heading">Зв'яжіться з Нами</h3>
+            <address>
+                <p>Email: <a href="mailto:info@mywebsite.com">info@mywebsite.com</a></p>
+                <p>Телефон: <a href="tel:+380987654321">+38 (098) 765-43-21</a></p>
+                <p>Ми у Discord: <a href="https://discord.gg/yourserver" target="_blank" rel="noopener noreferrer">Приєднуйтесь до нашої спільноти!</a></p>
+            </address>
+        </section>
+        <div class="copyright">
+            <p>&copy; 2025 Мій Вебсайт. Всі права захищено. Створено з любов'ю до ігор.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript для функціоналу пошуку -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchForm = document.getElementById('search-form');
+            const searchInput = document.getElementById('search-input');
+            const articlesSection = document.getElementById('news');
+            const articles = articlesSection.querySelectorAll('article');
+
+            searchForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Запобігаємо стандартній відправці форми
+
+                const searchTerm = searchInput.value.toLowerCase().trim();
+
+                articles.forEach(article => {
+                    const articleTitle = article.querySelector('h3').textContent.toLowerCase();
+                    const articleText = article.querySelector('p').textContent.toLowerCase();
+                    const articleKeywords = article.dataset.keywords ? article.dataset.keywords.toLowerCase() : '';
+
+                    // Перевіряємо, чи є пошуковий термін у заголовку, тексті або ключових словах статті
+                    if (articleTitle.includes(searchTerm) || articleText.includes(searchTerm) || articleKeywords.includes(searchTerm)) {
+                        article.style.display = 'block'; // Показати статтю
+                    } else {
+                        article.style.display = 'none'; // Приховати статтю
+                    }
+                });
+
+                // Якщо пошуковий термін порожній, показати всі статті
+                if (searchTerm === '') {
+                    articles.forEach(article => {
+                        article.style.display = 'block';
+                    });
+                }
+            });
+
+            // Додатково: Приховати/показати всі статті при зміні поля пошуку (для зручності)
+            searchInput.addEventListener('keyup', () => {
+                if (searchInput.value.trim() === '') {
+                    articles.forEach(article => {
+                        article.style.display = 'block';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
